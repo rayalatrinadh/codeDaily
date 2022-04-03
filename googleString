@@ -1,0 +1,45 @@
+//asked in Capgemini interview on 03 April 2022 SUNDAY
+//INPUT : google
+//output : g-2,o-2,l-1,e-1;
+
+package com.trinadh.StringDemos;
+
+import java.util.Locale;
+
+public class Demo_01 {
+    public static void main(String[] args) {
+        String str = "Google";
+        StringManipulation(str);
+    }
+    static void StringManipulation(String str){
+        str = str.toLowerCase();
+        char[] strArr = str.toCharArray();
+        String ans = "";
+
+        for(int i = 0; i < strArr.length; i++){
+            int count = 1;
+            for(int j = i+1; j < strArr.length; j++){
+                if(strArr[i] == strArr[j] && strArr[i] != 'f'){
+                    strArr[j] = 'f';
+                    count++;
+                }
+            }
+            if(strArr[i] != 'f'){
+                ans = ans +  strArr[i]+"-"+ count+"\n";
+            }
+            strArr[i] = 'f';
+
+
+        }
+        System.out.println("finalAns : \n"+ans);
+    }
+}
+
+//our code output 
+/*
+finalAns : 
+g-2
+o-2
+l-1
+e-1
+*/
