@@ -1,0 +1,62 @@
+//still having the issue with this code
+
+package com.trinadh.Leetcode;
+
+import java.util.Locale;
+
+public class RemoveAllOccurrances {
+    public static void main(String[] args) {
+        String str = "bsszxszxokpszxokpuyfkxebxsagytrlrvdxuyfkxebxsagytrlrvdxokszxokpuyfkxebxsszxszxokpuyfkxebxsagyszxokpuyfkxebxsagytrlrvdxtrlszxokpuyfkxebxsagytrlrvdxszxokpuyfkxebxsagytrlrvdxrvdxokpuyfkxebxsagytrlrvdxagytrlrvdxpuyfkxebxsagytrlrvdxzxokpuyfkxebxsagytrlrvdxxwuhpgzqsfxgdobonswrmyvzyzt";
+        String part = "szxokpuyfkxebxsagytrlrvdx";
+
+        /*System.out.println(str.substring(str.length()-1));
+
+        StringBuilder strBuild = new StringBuilder(str);
+        System.out.println(strBuild);
+
+
+        System.out.println(strBuild.subSequence(0,str.length()-1));
+
+        StringBuffer strBuf = new StringBuffer(str);
+        System.out.println(strBuf.substring(5));
+        System.out.println(strBuf.substring(0,3));
+
+
+        System.out.println(strBuf);
+        strBuf.delete(0,2);
+        System.out.println(strBuf);*/
+
+        Manipulation(str,part);
+    }
+    static void Manipulation(String s,String part){
+        int i = 0;
+        s = s.toLowerCase();
+        part = part.toLowerCase();
+        StringBuilder strBuild = new StringBuilder(s);
+        while(i < strBuild.length()){
+            if(strBuild.toString().equals(part)){
+                 strBuild = strBuild.delete(0,part.length());
+                 break;
+            }
+            if(strBuild.length() <= part.length()){
+                break;
+            }
+            if(strBuild.charAt(i) == part.charAt(0)){
+                //System.out.println(strBuild.subSequence(i,i+part.length()));
+                //System.out.println(strBuild.subSequence(i,i+part.length()).equals(part));
+
+                if((strBuild.subSequence(i,i+part.length())).length() > part.length()) {
+
+                    if ((strBuild.subSequence(i, i + part.length()).equals(part))) {
+                        strBuild = strBuild.delete(i, i + part.length());
+                        System.out.println(strBuild);
+                        i = -1;
+                    }
+                }
+
+            }
+            i++;
+        }
+        System.out.println("outPut : " + strBuild);
+    }
+}
