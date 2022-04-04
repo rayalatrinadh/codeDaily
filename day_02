@@ -1,0 +1,34 @@
+//https://leetcode.com/problems/remove-all-occurrences-of-a-substring/
+
+//1910. Remove All Occurrences of a Substring
+
+class Solution {
+    public String removeOccurrences(String s, String part) {
+        
+        int i = 0;
+        s = s.toLowerCase();
+        part = part.toLowerCase();
+        StringBuilder strBuild = new StringBuilder(s);
+        while(i < strBuild.length()){
+            if(strBuild.toString().equals(part)){
+                 strBuild = strBuild.delete(0,part.length());
+                 break;
+            }
+            if(strBuild.length() <= part.length()){
+                break;
+            }
+            if(strBuild.charAt(i) == part.charAt(0)){
+                //System.out.println(strBuild.subSequence(i,i+part.length()));
+                //System.out.println(strBuild.subSequence(i,i+part.length()).equals(part));
+                if(strBuild.subSequence(i,i+part.length()).equals(part)){
+                    strBuild = strBuild.delete(i,i+part.length());
+                    i = 0;
+                }
+            }
+            i++;
+        }
+        //System.out.println("outPut : " + strBuild);
+		return strBuild.toString();
+        
+    }
+}
