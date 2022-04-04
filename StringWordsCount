@@ -1,0 +1,41 @@
+package com.trinadh.StringDemos;
+
+public class StringDemo_02 {
+    public static void main(String[] args) {
+        String str =  "Google creates Google doodles when the Google needs doodles";
+        stringManipulation(str);
+    }
+    static void stringManipulation(String str){
+        str = str.toLowerCase();
+        String[] strArr = str.split(" ");
+
+        int i = 0;
+        String ans = "";
+        while(i < strArr.length-1){
+            int count = 1;
+            for(int j = i + 1; j < strArr.length; j++){
+                if(strArr[i].equals(strArr[j]) && strArr[j]!= ""){
+                    count++;
+                    strArr[j] = "";
+                }
+            }
+          //System.out.println(strArr[i] == "");
+            if(strArr[i] != ""){
+                ans = ans + strArr[i] + " - "+ count + "\n";
+                strArr[i] = "";
+            }
+            i++;
+        }
+        System.out.println(" ==> ans : \n"+ ans);
+    }
+}
+
+/*
+   ==> ans : 
+  google - 3
+  creates - 1
+  doodles - 2
+  when - 1
+  the - 1
+  needs - 1
+*/
