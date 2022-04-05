@@ -1,0 +1,14 @@
+//https://leetcode.com/problems/maximum-number-of-words-found-in-sentences/submissions/
+
+//2114. Maximum Number of Words Found in Sentences
+
+class Solution {
+    public int mostWordsFound(String[] sentences) {
+         int ans = 1;
+        for(int i = 0; i < sentences.length; i++){
+            int temp = sentences[i].toString().split(" ").length;
+            ans = ans < temp ? temp : ans;
+        }
+        return ans;
+    }
+}
