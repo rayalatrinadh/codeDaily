@@ -1,0 +1,14 @@
+//this logic came wrong value
+//leetcdoe coming as output instead of leetcode
+static String restoreString(String s, int[] indices){
+        String ans = "";
+        int i = 0;
+        List<Integer> list =  Arrays.stream(indices).boxed().collect(Collectors.toList());
+        System.out.println(list);
+        while(i < indices.length){
+            int getIndexVal = list.get(i);
+            ans += s.charAt(getIndexVal);
+            i++;
+        }
+        return ans;
+    }
