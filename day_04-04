@@ -1,0 +1,18 @@
+class Solution {
+    public String restoreString(String s, int[] indices) {
+      String ans = "";
+        int count = 0;
+        int i = 0;
+        List list = new ArrayList();
+
+        for( i = 0; i < indices.length;i++) {
+            list.add(i,indices[i]);
+        }
+        i = 0;
+        while (i < indices.length) {
+                ans = ans + s.charAt((Integer) list.indexOf(i));
+            i++;
+        }
+        return ans;
+    }
+}
