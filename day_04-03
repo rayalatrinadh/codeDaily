@@ -1,0 +1,17 @@
+int count = 0;
+        int i = 0;
+        String ans = "";
+        while (i < indices.length) {
+
+            if (ans.length() == indices.length) {
+                return ans;
+            }
+            if (indices[i] == count) {
+                ans = ans + "" + s.charAt(i);
+                count++;
+                i = -1;
+            }
+            i++;
+        }
+        return ans;
+}
